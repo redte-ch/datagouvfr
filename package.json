@@ -1,0 +1,73 @@
+{
+  "name": "@redtech/datagouvfr",
+  "version": "0.0.0",
+  "description": "TypeScript data.gouv.fr Web API client for Node and browser",
+  "license": "EUPL-1.2-or-later",
+  "homepage": "https://github.com/redte-ch/data.gouv.fr",
+  "bugs": {
+    "url": "https://github.com/redte-ch/data.gouv.fr/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redte-ch/data.gouv.fr.git"
+  },
+  "author": {
+    "name": "Mauko Quiroga-Alvarado",
+    "email": "public@mauko.me",
+    "url": "https://redte.ch"
+  },
+  "keywords": [
+    "data.gouv.fr",
+    "api",
+    "client",
+    "typescript",
+    "opendata"
+  ],
+  "scripts": {
+    "style:format": "prettier --ignore-unknown --write .",
+    "style:format:staged": "git-format-staged -f 'prettier --ignore-unknown --stdin --stdin-filepath \"{}\"' .",
+    "style:lint": "eslint .",
+    "style:lint:fix": "eslint --fix .",
+    "tasks:compile": "tsc",
+    "tasks:release": "commit-and-tag-version",
+    "tasks:setup": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@tsconfig/node18": "^18.2.2",
+    "@types/node": "^20.10.4",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "commit-and-tag-version": "^12.0.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-config-standard-with-typescript": "^42.0.0",
+    "eslint-plugin-functional": "^6.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "git-format-staged": "^3.0.0",
+    "husky": "^8.0.3",
+    "jsonc-eslint-parser": "^2.4.0",
+    "prettier": "^3.1.0",
+    "prettier-config-standard": "^7.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "lodash": "^4.17.21"
+  },
+  "engines": {
+    "node": ">= 18.0.0",
+    "npm": ">= 9.0.0"
+  },
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "dist"
+  ],
+  "type": "module"
+}

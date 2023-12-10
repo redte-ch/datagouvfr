@@ -23,13 +23,24 @@ module.exports = {
         'standard-with-typescript',
         'prettier'
       ],
-      files: ['src/**/*.ts'],
+      files: ['src/**/*.ts', 'tests/**/*.ts'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: './tsconfig.json',
+        project: './tsconfig.test.json',
         tsconfigRootDir: __dirname
       },
-      plugins: ['@typescript-eslint', 'functional']
+      plugins: ['@typescript-eslint', 'functional'],
+      rules: {
+        'functional/prefer-immutable-types': 'off',
+        'functional/no-mixed-types': 'off'
+      }
+    },
+    {
+      files: ['**/*.test.ts'],
+      rules: {
+        'functional/no-expression-statements': 'off',
+        'functional/no-return-void': 'off'
+      }
     }
   ],
   parser: 'espree',

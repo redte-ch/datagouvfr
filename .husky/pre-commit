@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run style:lint
-npm run style:format:staged
+npm run lint
+npm run format:staged

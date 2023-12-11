@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "paths": { "@/*": ["./src/*"], "#/*": ["./test/*"] },
-    "resolveJsonModule": true
+    "paths": { "@/*": ["src/*"], "#/*": ["test/*"] },
+    "resolveJsonModule": true,
+    "types": ["geojson", "jest", "node", "uuid"]
   },
   "extends": ["./tsconfig.json"],
   "include": ["src/**/*.ts", "test/**/*.ts"]

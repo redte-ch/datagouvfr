@@ -1,17 +1,11 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
+    "baseUrl": ".",
     "forceConsistentCasingInFileNames": true,
-    "lib": ["esnext", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
-    "outDir": "dist",
     "paths": { "@/*": ["./src/*"] },
-    "sourceMap": true,
     "strict": true,
-    "target": "esnext",
     "types": ["node"]
   },
   "extends": ["@tsconfig/node18/tsconfig.json"],

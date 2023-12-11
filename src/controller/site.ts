@@ -7,6 +7,7 @@ import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import Axios from 'axios'
 
 import type { Activity } from '@/domain/activity'
+import type { DataError } from '@/domain/error'
 import type { Page } from '@/domain/page'
 import { toCamel } from '@/utils/convert-case'
 
@@ -18,6 +19,7 @@ type R<T> = Promise<AxiosResponse<T>>
  */
 interface Site {
   getActivities: (opts?: P) => R<Page<Activity[]>>
+  getMetricsFor: (id: string, opts?: P) => R<DataError>
 }
 
 /**
@@ -26,7 +28,8 @@ interface Site {
  * @type {AxiosRequestConfig}
  */
 const baseOpts: P = {
-  baseURL: 'https://demo.data.gouv.fr/api/1'
+  baseURL: 'https://demo.data.gouv.fr/api/1',
+  validateStatus: (_status: number): true => true
 }
 
 /**
@@ -41,14 +44,21 @@ const site = (client: AxiosInstance = Axios.create(baseOpts)): Site => {
    * @return {Promise<AxiosResponse<Page<Activity[]>>>}
    */
   const getActivities = async (opts: P = {}): R<Page<Activity[]>> => {
+    const url = '/activity'
     const method = 'get'
-    const url = '/activity/'
     const request = { ...baseOpts, ...opts, method, url }
     const response = await client<Page<Activity[]>>(request)
     return { ...response, data: toCamel<Page<Activity[]>>(response.data) }
   }
 
-  return { getActivities }
+  const getMetricsFor = async (id: string, opts: P = {}): R<DataError> => {
+    const url = `/metrics/${id}`
+    const method = 'get'
+    const request = { ...baseOpts, ...opts, method, url }
+    return await client<DataError>(request)
+  }
+
+  return { getActivities, getMetricsFor }
 }
 
 /**

@@ -50,6 +50,6 @@ export interface Page<T, U = T> {
 
 /**
  * @export
- * @interface PageActivities
+ * @interface ActivityPage
  */
-export type PageActivities = Page<Activity[]>
+export type ActivityPage = Page<Activity[]>

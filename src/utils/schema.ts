@@ -22,7 +22,7 @@ interface Schema {
  * JSON Schema validator
  * @type {Ajv}
  */
-const parser: Ajv = new Ajv()
+const parser: Ajv = new Ajv({ allowUnionTypes: true })
 
 /**
  * The base path for the project

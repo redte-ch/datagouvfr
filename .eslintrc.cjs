@@ -23,7 +23,7 @@ module.exports = {
         'standard-with-typescript',
         'prettier'
       ],
-      files: ['src/**/*.ts', 'tests/**/*.ts'],
+      files: ['src/**/*.ts', 'test/**/*.ts'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: './tsconfig.test.json',

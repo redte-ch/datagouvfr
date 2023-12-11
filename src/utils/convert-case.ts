@@ -3,7 +3,6 @@
  * Licensed under the EUPL-1.2-or-later
  * For details: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
-
 import { camelKeys, snakeKeys } from 'js-convert-case'
 
 /**
@@ -11,6 +10,7 @@ import { camelKeys, snakeKeys } from 'js-convert-case'
  */
 interface Options {
   recursive: boolean
+  recursiveInArray: boolean
 }
 
 /**
@@ -18,25 +18,30 @@ interface Options {
  * @type {Options}
  */
 const options: Options = {
-  recursive: true
+  recursive: true,
+  recursiveInArray: true
 }
 
 /**
  * Convert object keys to camel case
  * @export
  * @param obj
- * @returns {object | null}
+ * @returns {object}
  */
-export const toCamel = <T>(obj: T): object | null => {
-  return camelKeys(obj, options)
+export const toCamel = <T>(obj: unknown): T => {
+  const keys = camelKeys(obj, options)
+  if (keys === null) return obj as T
+  return keys as T
 }
 
 /**
  * Convert object keys to snake case
  * @export
  * @param obj
- * @returns {object | null}
+ * @returns {object}
  */
-export const toSnake = <T>(obj: T): object | null => {
-  return snakeKeys(obj, options)
+export const toSnake = <T>(obj: unknown): T => {
+  const keys = snakeKeys(obj, options)
+  if (keys === null) return obj as T
+  return keys as T
 }

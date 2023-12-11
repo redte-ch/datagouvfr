@@ -34,9 +34,8 @@ test('resolve path', () => {
 
 test('generate schema', () => {
   const name = 'dataset'
-  const {
-    schema: { definitions }
-  } = Schema(name)
+  const { schema } = Schema(name)
+  const { definitions } = schema
   expect(definitions).toHaveProperty('Badge')
   expect(definitions).toHaveProperty('Dataset')
 })
@@ -44,9 +43,8 @@ test('generate schema', () => {
 test('generate schema for a specific type', () => {
   const name = 'dataset'
   const type = 'Badge'
-  const {
-    schema: { definitions }
-  } = Schema(name, type)
+  const { schema } = Schema(name, type)
+  const { definitions } = schema
   expect(definitions).toHaveProperty('Badge')
   expect(definitions).not.toHaveProperty('Dataset')
 })
@@ -54,5 +52,5 @@ test('generate schema for a specific type', () => {
 test('validate that data correspond to schemas', () => {
   const name = 'site'
   const schema = Schema(name)
-  expect(schema.validate(site)).toBeTruthy()
+  expect(schema.errors(site)).toBeFalsy()
 })

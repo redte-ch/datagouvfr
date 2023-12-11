@@ -3,7 +3,6 @@
  * Licensed under the EUPL-1.2-or-later
  * For details: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
-
 import type { Kwargs } from './kwargs'
 import type { OrganizationReference, UserReference } from './reference'
 
@@ -23,7 +22,7 @@ export interface Activity {
    * @type {string}
    * @memberof Activity
    */
-  created_at?: string
+  createdAt?: string
   /**
    * The icon of the activity
    * @type {string}
@@ -59,23 +58,23 @@ export interface Activity {
    * @type {string}
    * @memberof Activity
    */
-  related_to: string
+  relatedTo: string
   /**
    * The activity target object identifier
    * @type {string}
    * @memberof Activity
    */
-  related_to_id: string
+  relatedToId: string
   /**
    * The activity target object class name
    * @type {string}
    * @memberof Activity
    */
-  related_to_kind: string
+  relatedToKind: string
   /**
    * The activity target model
    * @type {string}
    * @memberof Activity
    */
-  related_to_url: string
+  relatedToUrl: string
 }

@@ -3,20 +3,19 @@
  * Licensed under the EUPL-1.2-or-later
  * For details: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
-
-import type { DataError } from './error'
+import type { Activity } from './activity'
 
 /**
  * @export
- * @interface Page
+ * @interface Page<T, U>
  */
-export interface Page<T> {
+export interface Page<T, U = T> {
   /**
    * The page data
    * @type {Array}
    * @memberof Page
    */
-  data?: T[] | DataError
+  data: T | U
   /**
    * The next page URL if exists
    * @type {string}
@@ -37,10 +36,10 @@ export interface Page<T> {
   pageSize: number
   /**
    * The previous page URL if exists
-   * @type {string}
+   * @type {string | null}
    * @memberof Page
    */
-  previousPage?: string
+  previousPage: string | null
   /**
    * The total paginated items
    * @type {number}
@@ -48,3 +47,9 @@ export interface Page<T> {
    */
   total: number
 }
+
+/**
+ * @export
+ * @interface PageActivities
+ */
+export type PageActivities = Page<Activity[]>

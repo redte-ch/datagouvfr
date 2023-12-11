@@ -3,7 +3,6 @@
  * Licensed under the EUPL-1.2-or-later
  * For details: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
-
 import type { Crontab } from './crontab'
 import type { Interval } from './interval'
 import type { Kwargs } from './kwargs'

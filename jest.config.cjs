@@ -1,6 +1,7 @@
 module.exports = {
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^#/(.*)$': '<rootDir>/test/$1'
   },
   reporters: ['jest-silent-reporter'],
   transform: {

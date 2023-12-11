@@ -59,11 +59,12 @@
     "jest-silent-reporter": "^0.5.0",
     "jsonc-eslint-parser": "^2.4.0",
     "lodash": "^4.17.21",
+    "msw": "^2.0.11",
     "prettier": "^3.1.0",
     "prettier-config-standard": "^7.0.0",
     "ts-jest": "^29.1.1",
     "ts-json-schema-generator": "^1.5.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "ajv": "^8.12.0",

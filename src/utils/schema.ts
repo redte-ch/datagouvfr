@@ -3,8 +3,8 @@
  * Licensed under the EUPL-1.2-or-later
  * For details: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
-
 import Ajv from 'ajv'
+import type { ErrorObject } from 'ajv'
 import { resolve } from 'path'
 import { createGenerator } from 'ts-json-schema-generator'
 import type { Schema as JSONSchema } from 'ts-json-schema-generator'
@@ -15,7 +15,7 @@ import type { Schema as JSONSchema } from 'ts-json-schema-generator'
 interface Schema {
   path: string
   schema: JSONSchema
-  validate: (data: unknown) => boolean
+  errors: (data: unknown) => ErrorObject[] | boolean
 }
 
 /**
@@ -34,7 +34,7 @@ const basePath: string = resolve(__dirname, '../..')
  * The path to the tsconfig.json file
  * @type {string}
  */
-const tsconfig: string = `${basePath}/tsconfig.json`
+const tsconfig: string = `${basePath}/tsconfig.test.json`
 
 /**
  * Resolve a domain model filepath
@@ -74,11 +74,17 @@ const schema = (name: string, type: string = '*'): Schema => {
 
   /**
    * The validation function
-   * @type {(data: unknown) => boolean}
+   * @param {unknown} data
+   * @return boolean | ErrorObject[]
    */
-  const validate: (data: unknown) => boolean = parser.compile(schema)
+  const errors = (data: unknown): ErrorObject[] | boolean => {
+    const isValid = parser.validate(schema, data)
+    const { errors } = parser
+    if (errors !== undefined && errors !== null) return errors
+    return !isValid
+  }
 
-  return { path, schema, validate }
+  return { path, schema, errors }
 }
 
 /**

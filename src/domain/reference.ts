@@ -3,7 +3,6 @@
  * Licensed under the EUPL-1.2-or-later
  * For details: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
-
 import type { Badge } from './badge'
 
 /**
@@ -63,10 +62,10 @@ export interface DatasetReference extends Reference {
 export interface OrganizationReference extends Reference {
   /**
    * The organization acronym
-   * @type {string}
+   * @type {string | null}
    * @memberof OrganizationReference
    */
-  acronym?: string
+  acronym: string | null
   /**
    * The organization badges
    * @type {Array<Badge>}
@@ -84,7 +83,7 @@ export interface OrganizationReference extends Reference {
    * @type {string}
    * @memberof OrganizationReference
    */
-  logo_thumbnail?: string
+  logoThumbnail?: string
   /**
    * The organization name
    * @type {string}
@@ -127,7 +126,7 @@ export interface ReuseReference extends Reference {
    * @type {string}
    * @memberof ReuseReference
    */
-  image_thumbnail?: string
+  imageThumbnail?: string
   /**
    * The reuse page URL
    * @type {string}
@@ -155,28 +154,28 @@ export interface ReuseReference extends Reference {
 export interface UserReference extends Reference {
   /**
    * The user avatar URL
-   * @type {string}
+   * @type {string | null}
    * @memberof UserReference
    */
-  avatar?: string
+  avatar: string | null
   /**
    * The user avatar thumbnail URL (500x500 and cropped version)
-   * @type {string}
+   * @type {string | null}
    * @memberof UserReference
    */
-  avatar_thumbnail?: string
+  avatarThumbnail: string | null
   /**
    * The user first name
    * @type {string}
    * @memberof UserReference
    */
-  first_name?: string
+  firstName?: string
   /**
    * The user last name
    * @type {string}
    * @memberof UserReference
    */
-  last_name?: string
+  lastName?: string
   /**
    * The user profile page URL
    * @type {string}

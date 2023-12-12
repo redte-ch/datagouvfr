@@ -9,14 +9,7 @@ import { resolve } from 'path'
 import { createGenerator } from 'ts-json-schema-generator'
 import type { Schema as JSONSchema } from 'ts-json-schema-generator'
 
-/**
- * @interface Schema
- */
-interface Schema {
-  path: string
-  schema: JSONSchema
-  errors: (data: unknown) => ErrorObject[] | boolean
-}
+import type { SchemaRepo } from './schema.repo'
 
 /**
  * JSON Schema validator
@@ -56,10 +49,12 @@ const toSchema = (path: string, type: string = '*'): JSONSchema => {
 
 /**
  * Utility function to validate data against a JSON Schema
+ * @export
+ * @function Schema
  * @param {string} name The domain model filename
  * @param {string} type The domain model type (default: '*')
  */
-const schema = (name: string, type: string = '*'): Schema => {
+export const Schema = (name: string, type: string = '*'): SchemaRepo => {
   /**
    * The domain model filepath
    * @type {string}
@@ -86,9 +81,3 @@ const schema = (name: string, type: string = '*'): Schema => {
 
   return { path, schema, errors }
 }
-
-/**
- * @export
- * @function Schema
- */
-export { schema as Schema }

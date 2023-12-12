@@ -5,13 +5,7 @@
  */
 import { camelKeys, snakeKeys } from 'js-convert-case'
 
-/**
- * @interface Options
- */
-interface Options {
-  recursive: boolean
-  recursiveInArray: boolean
-}
+import type { Options } from './convert-case.repo'
 
 /**
  * @const options

@@ -1,7 +1,7 @@
+import { Schema } from '#/utils/schema'
 import { expect, test } from '@jest/globals'
 
 import type { Site } from '@/domain/site'
-import { Schema } from '@/utils/schema'
 
 const site: Site = {
   id: 'data.gouv.fr',

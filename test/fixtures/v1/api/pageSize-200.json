@@ -1,0 +1,8 @@
+{
+  "data": [],
+  "nextPage": "https://example.lol/api/1/activity?page_size=10&page=2",
+  "page": 1,
+  "pageSize": 10,
+  "previousPage": null,
+  "total": 12345
+}

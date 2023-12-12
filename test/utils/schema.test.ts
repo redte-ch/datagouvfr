@@ -1,27 +1,28 @@
-import { Schema } from '#/utils/schema'
 import { expect, test } from '@jest/globals'
 
 import type { Site } from '@/domain/site'
 
+import { Schema } from '#/utils/schema'
+
 const site: Site = {
-  id: 'data.gouv.fr',
+  id: 'example.lol',
   metrics: {
-    datasets: 46978,
-    discussions: 12886,
-    followers: 30355,
-    harvesters: 308,
-    maxDatasetFollowers: 154,
-    maxDatasetReuses: 143,
-    maxOrgDatasets: 1017,
-    maxOrgFollowers: 636,
-    maxOrgReuses: 85,
-    maxReuseDatasets: 68,
-    maxReuseFollowers: 324,
-    organizations: 4855,
-    publicService: 0,
-    resources: 272685,
-    reuses: 3657,
-    users: 112867
+    datasets: 1,
+    discussions: 1,
+    followers: 1,
+    harvesters: 1,
+    maxDatasetFollowers: 1,
+    maxDatasetReuses: 1,
+    maxOrgDatasets: 1,
+    maxOrgFollowers: 1,
+    maxOrgReuses: 1,
+    maxReuseDatasets: 1,
+    maxReuseFollowers: 1,
+    organizations: 1,
+    publicService: 1,
+    resources: 1,
+    reuses: 1,
+    users: 1
   },
   title: 'data.gouv.fr'
 }

@@ -9,7 +9,6 @@ import type { BaseOpts } from './opts.repo'
  * Basic options for the API client
  * @see https://axios-http.com/docs/req_config
  * @export
- * @const baseOpts
  * @type {BaseOpts}
  */
 export const baseOpts: BaseOpts = {

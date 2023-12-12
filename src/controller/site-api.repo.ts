@@ -10,6 +10,7 @@ import type { Organization } from '@/domain/organization'
 import type { Page } from '@/domain/page'
 import type { User } from '@/domain/user'
 import type { Response } from '@/infra/client.repo'
+import type { PageParams } from '@/infra/params.repo'
 
 /**
  * @export
@@ -17,70 +18,58 @@ import type { Response } from '@/infra/client.repo'
  */
 export interface SiteAPIRepo {
   getActivities: (
-    params: getActivitiesParams
-  ) => Promise<Response<Page<Activity[]>>>
+    params: GetActivitiesParams
+  ) => Promise<Response<Page<Activity[]> | DataError>>
   getMetrics: (id: string) => Promise<Response<DataError>>
-  getOEmbed: (params: getOEmbedParams) => Promise<Response<OEmbed>>
+  getOEmbed: (params: GetOEmbedParams) => Promise<Response<OEmbed | DataError>>
 }
 
 /**
  * @export
- * @interface getActivitiesParams
+ * @interface GetActivitiesParams
  */
-export interface getActivitiesParams {
-  /**
-   * The page to fetch
-   * @type {number}
-   * @memberof getActivitiesParams
-   */
-  page?: number | 1
-  /**
-   * The page size to fetch
-   * @type {number}
-   * @memberof getActivitiesParams
-   */
-  pageSize?: number | 20
+export interface GetActivitiesParams extends PageParams {
   /**
    * Filter activities for that particular user
    * @type {string}
-   * @memberof getActivitiesParams
+   * @memberof GetActivitiesParams
    */
   user?: User['id']
   /**
    * Filter activities for that particular organization
    * @type {string}
-   * @memberof getActivitiesParams
+   * @memberof GetActivitiesParams
    */
   organization?: Organization['id']
 }
 
 /**
  * @export
- * @interface getOEmbedParams
+ * @interface GetOEmbedParams
  */
-export interface getOEmbedParams {
+export interface GetOEmbedParams {
   /**
    * The URL to retrieve embedding information for
    * @type {string}
-   * @memberof getOEmbedParams
+   * @memberof GetOEmbedParams
    */
   url: string
   /**
    * The maximum width of the embedded resource
    * @type {number}
-   * @memberof getOEmbedParams
+   * @memberof GetOEmbedParams
    */
   maxwidth?: OEmbed['maxwidth']
   /**
    * The maximum height of the embedded resource
    * @type {number}
-   * @memberof getOEmbedParams
+   * @memberof GetOEmbedParams
    */
   maxheight?: OEmbed['maxheight']
   /**
    * The required response format.
    * @type {string}
-   * @memberof getOEmbedParams
+   * @memberof GetOEmbedParams
    */
   format: 'json'
 }

@@ -50,7 +50,6 @@ const toSchema = (path: string, type: string = '*'): JSONSchema => {
 /**
  * Utility function to validate data against a JSON Schema
  * @export
- * @function Schema
  * @param {string} name The domain model filename
  * @param {string} type The domain model type (default: '*')
  */

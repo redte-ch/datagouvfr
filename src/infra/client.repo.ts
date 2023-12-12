@@ -5,9 +5,28 @@
  */
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-export type RequestOpts<T> = AxiosRequestConfig<T>
-export type RequestConfig<T> = AxiosRequestConfig<T>
+/**
+ * @export
+ * @interface Response
+ */
 export type Response<T> = AxiosResponse<T>
+
+/**
+ * @export
+ * @interface RequestOpts
+ */
+export type RequestOpts<T> = AxiosRequestConfig<T>
+
+/**
+ * @export
+ * @interface RequestConfig
+ */
+export type RequestConfig<T> = AxiosRequestConfig<T>
+
+/**
+ * @export
+ * @interface ClientRepo
+ */
 export type ClientRepo = <T>(
   requestOpts: RequestOpts<T>
 ) => Promise<Response<T>>

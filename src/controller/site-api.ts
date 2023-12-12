@@ -11,27 +11,26 @@ import { Client } from '@/infra/client'
 import type { ClientRepo, RequestOpts, Response } from '@/infra/client.repo'
 
 import type {
-  getActivitiesParams,
-  getOEmbedParams,
+  GetActivitiesParams,
+  GetOEmbedParams,
   SiteAPIRepo
 } from './site-api.repo'
 
 /**
  * Create a new Site Web API client
  * @export
- * @function SiteAPI
  * @param {ClientRepo} client
  * @return {SiteAPIRepo}
  */
 export const SiteAPI = (client: ClientRepo = Client()): SiteAPIRepo => {
   /**
    * Get the list of activities
-   * @param {getActivitiesParams} params
+   * @param {GetActivitiesParams} params
    * @return {Promise<Response<Page<Activity[]>>>}
    */
   const getActivities = async (
-    params: getActivitiesParams = {}
-  ): Promise<Response<Page<Activity[]>>> => {
+    params: GetActivitiesParams = {}
+  ): Promise<Response<Page<Activity[]> | DataError>> => {
     const url = '/activity'
     const method = 'get'
     const requestOpts: RequestOpts<Page<Activity[]>> = { params, method, url }
@@ -53,12 +52,12 @@ export const SiteAPI = (client: ClientRepo = Client()): SiteAPIRepo => {
 
   /**
    * Get the oEmbed data for a given URL
-   * @param {getOEmbedParams} params
+   * @param {GetOEmbedParams} params
    * @return {Promise<Response<OEmbed>>}
    */
   const getOEmbed = async (
-    params: getOEmbedParams
-  ): Promise<Response<OEmbed>> => {
+    params: GetOEmbedParams
+  ): Promise<Response<OEmbed | DataError>> => {
     const url = '/oembed'
     const method = 'get'
     const requestOpts: RequestOpts<OEmbed> = { params, method, url }

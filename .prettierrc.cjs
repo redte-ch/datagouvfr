@@ -4,7 +4,7 @@ const prettierConfigStandard = require('prettier-config-standard')
 const sortImports = require('@trivago/prettier-plugin-sort-imports')
 
 const prettierSortImports = {
-  importOrder: ['^@/(.*)$', '^[./]'],
+  importOrder: ['^@/(.*)$', '^#/(.*)$', '^[./]'],
   importOrderGroupNamespaceSpecifiers: true,
   importOrderSeparation: true,
   plugins: [sortImports]

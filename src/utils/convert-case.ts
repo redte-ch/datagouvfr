@@ -19,7 +19,7 @@ const options: Options = {
 /**
  * Convert object keys to camel case
  * @export
- * @param obj
+ * @param {unknown} obj
  * @returns {object}
  */
 export const toCamel = <T>(obj: unknown): T => {
@@ -31,7 +31,7 @@ export const toCamel = <T>(obj: unknown): T => {
 /**
  * Convert object keys to snake case
  * @export
- * @param obj
+ * @param {unknown} obj
  * @returns {object}
  */
 export const toSnake = <T>(obj: unknown): T => {
